@@ -189,6 +189,9 @@ export default function SearchResults() {
   }, [rawQuery]);
 
   async function handleRegister(domain) {
+    console.log('REGISTER TOKEN:', token);
+    console.log('REGISTER DOMAIN:', domain);
+
     if (!token) {
       setNotice({
         type: 'error',
@@ -208,6 +211,8 @@ export default function SearchResults() {
         message: `${domain} is registered. View it in your dashboard.`,
       });
     } catch (err) {
+      console.error('REGISTER ERROR:', err);
+
       setNotice({
         type: 'error',
         message: err?.message || 'Registration failed.',
@@ -309,4 +314,3 @@ export default function SearchResults() {
     </div>
   );
 }
-
