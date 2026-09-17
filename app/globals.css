@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+::selection {
+  background: #e7e8ea;
+  color: #08080a;
+}
+
+/* Visible keyboard focus everywhere, styled to match the chrome palette */
+:focus-visible {
+  outline: 2px solid #e7e8ea;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@layer components {
+  /* Primary "brushed chrome" call-to-action */
+  .btn-chrome {
+    @apply relative inline-flex items-center justify-center rounded-full bg-chrome px-6 py-3
+      text-sm font-semibold tracking-tightish text-ink shadow-chrome transition-transform duration-150
+      hover:bg-chrome-hover active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Secondary, outlined ghost button on dark panels */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-full border border-hairline bg-white/[0.03] px-6 py-3
+      text-sm font-medium text-paper transition-colors duration-150 hover:bg-white/[0.07]
+      disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Dark glass panel with a faint diagonal sheen, like a lacquered surface */
+  .panel {
+    @apply relative overflow-hidden rounded-2xl border border-hairline bg-panel shadow-panel;
+  }
+
+  .panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: theme('backgroundImage.sheen');
+    pointer-events: none;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-hairline bg-white/[0.03] px-4 py-3 text-sm text-paper
+      placeholder:text-haze focus:border-chrome/60 focus:outline-none;
+  }
+
+  .label {
+    @apply mb-2 block text-sm text-steel;
+  }
+
+  .status-dot {
+    @apply inline-block h-1.5 w-1.5 rounded-full;
+  }
+
+  .kbd {
+    @apply rounded border border-hairline bg-white/[0.05] px-1.5 py-0.5 font-mono text-[11px] text-steel;
+  }
+}

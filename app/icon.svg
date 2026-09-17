@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="chrome" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F5F6" />
+      <stop offset="55%" stop-color="#C9CBCE" />
+      <stop offset="100%" stop-color="#E7E8EA" />
+    </linearGradient>
+  </defs>
+  <rect width="32" height="32" rx="7" fill="#08080A" />
+  <rect x="4" y="4" width="24" height="24" rx="5" fill="url(#chrome)" />
+  <text x="16" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="15" fill="#08080A">F</text>
+</svg>
